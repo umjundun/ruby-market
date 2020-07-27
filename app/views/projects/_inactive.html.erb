@@ -38,6 +38,10 @@
         </div>
       </div>
     <% end %>
+    <div class="my-6">
+      <%= render "comments/comments", commentable: project  %>
+      <p>Comments are closed for inactive projects</p>
+    </div>
     </div>
     <div class="w-full mt-6 lg:pl-10 lg:w-2/5 lg:mt-0">
       <p class="text-sm font-semibold text-gray-500 uppercase">Description</p>
@@ -45,15 +49,10 @@
     </div>
   </div>
 
-  <div class="w-full lg:w-3/5">
-    <%= render "comments/comments", commentable: project  %>
-    <p>Comments are closed for inactive projects</p>
-  </div>
-
   <% if admin? || author_of(project) %>
     <div class="absolute top-0 right-0 mt-4 mr-4">
       <%= link_to 'Edit', edit_project_path(project), class: "btn btn-sm btn-outlined btn-default" %>
-      <%= link_to 'Delee', project_path(project), method: :delete, class: "btn btn-sm btn-outlined btn-default", data: { confirm: "Are you sure?" } %>
+      <%= link_to 'Delete', project_path(project), method: :delete, class: "btn btn-sm btn-outlined btn-default", data: { confirm: "Are you sure?" } %>
     </div>
   <% end %>
 </div>

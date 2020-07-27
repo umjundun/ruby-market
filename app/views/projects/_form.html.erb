@@ -21,6 +21,11 @@
     <%= form.text_field :donation_goal, class: "input" %>
   </div>
 
+ <div class="mb-6">
+    <%= form.label :thumbnail, "Project thumbnail", class: "label" %>
+    <%= form.file_field :thumbnail %>
+  </div>
+
   <div class="mb-6">
     <%= form.label :description, class: "label" %>
     <%= form.rich_text_area :description, class: "input" %>

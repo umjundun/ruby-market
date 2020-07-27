@@ -1,7 +1,7 @@
-<%= form_with(model: project, local: true, multipart: true) do |form| %>
+<%= form_with(model: project, local: true) do |form| %>
   <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+    <div id="error_explanation" class="bg-white p-6 rounded text-red-500 mb-5">
+      <h2 class="text-red-500 font-bold"><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
       <ul>
         <% project.errors.full_messages.each do |message| %>
@@ -11,26 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="mb-6">
     <%= form.label :title, class: "label" %>
     <%= form.text_field :title, class: "input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :thumbnail, "Project Thumbnail", class: "label" %>
-    <%= form.text_field :donation_goal %>
+  <div class="mb-6">
+    <%= form.label :donation_goal, class: "label" %>
+    <%= form.text_field :donation_goal, class: "input" %>
   </div>
-<div class="field">
-      <%= form.label :thumbnail, class: "label" %>
-      <%= form.file_field :thumbnail, class: "input" %>
-    </div>
 
-    <div class="field">
-      <%= form.label :description, class: "label" %>
-      <%= form.rich_text_area :description, class: "input" %>
-    </div>
+  <div class="mb-6">
+    <%= form.label :description, class: "label" %>
+    <%= form.rich_text_area :description, class: "input" %>
+  </div>
 
-  <div class="actions">
+  <div class="mb-6">
     <%= form.submit class: "btn btn-default" %>
   </div>
 <% end %>

@@ -1,5 +1,5 @@
 <% if @project.active? %>
-  <%= render "active_project", project: @project %>
+  <%= render "active", project: @project %>
 <% else %>
-  <%= render "inactive_project", project: @project %>
+  <%= render "inactive", project: @project %>
 <% end %>

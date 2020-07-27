@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    # only show active projects
+    @projects = Project.active
+
   end
 
   # GET /projects/1
@@ -30,6 +32,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        ExpireProjectJob.set(wait_until: @project.expires_at).perform_later(@project)
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else

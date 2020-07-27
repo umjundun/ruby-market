@@ -1,4 +1,4 @@
-class Projects::CommentsController < ApplicationController
+class Projects::CommentsController < CommentsController
   before_action :set_commentable
 
   private

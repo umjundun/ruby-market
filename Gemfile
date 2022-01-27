@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'friendly_id', '~> 5.3'
-gem 'sidekiq', '~> 6.1', '>= 6.1.1'
+gem 'sidekiq', '~> 6.4'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'stripe'
 gem 'omniauth', '~> 1.9'
